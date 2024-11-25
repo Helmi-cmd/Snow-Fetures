@@ -18,7 +18,7 @@ local inSnowman = false
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-
+-- Snowball Making and weather checking
 
 local keybind = lib.addKeybind({
     name = 'snowball',
@@ -76,6 +76,7 @@ RegisterNetEvent('snowball', function()
 end)
 
 ------------------------------------------------------------------------------------------------------------------------------
+-- Making of the snowman
 
 RegisterNetEvent('qbx_smallresources:client:snowmanProgress', function()
     if lib.callback.await('checkSnowballAndCarrotCount') then
@@ -123,6 +124,8 @@ RegisterNetEvent('qbx_smallresources:client:snowmanProgress', function()
         exports.qbx_core:Notify('You have cancelled the action', 'error', 5000) -- Notify Client, You cancelled the action
     end
 end)
+------------------------------------------------------------------------------------------------------------------------------
+-- Hiding in the snowman and exiting the snowman
 
 local function snowmanCheck()
     inSnowman = true
