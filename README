@@ -65,7 +65,9 @@ Known Issues
 if Snowman dissapears/get destryed player stays inside.
 
 Future Enhancements
+Adding ability to check ground to prevent players from picking up snowballs inside.
 Add animations snowman construction.
 Introduce durability for snowmen that degrade over time or under specific conditions.
+fixing snowman getting destroyed.
 
 Enjoy the snowy fun!
