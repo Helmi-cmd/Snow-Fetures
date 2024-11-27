@@ -29,7 +29,16 @@ local keybind = lib.addKeybind({
     end,
 })
 RegisterNetEvent('snowball', function()
+    if inSnowman then
+        exports.qbx_core:Notify('You can\'t do this while in a snowman!', 'error', 5000)
+        return
+        end
     local weather = GlobalState.weather.weather
+
+    if GetInteriorFromEntity(cache.ped) == 0 then
+        exports.qbx_core:Notify('You cannot make a snowball indoors!', 'error', 5000)
+        return
+    end
 
     if not table.contains(snowing, weather) then
         exports.qbx_core:Notify('There is no snow on the ground', 'error', 5000) -- Notify Client, There is no snow on the ground
