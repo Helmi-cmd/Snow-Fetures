@@ -35,7 +35,7 @@ RegisterNetEvent('snowball', function()
         end
     local weather = GlobalState.weather.weather
 
-    if GetInteriorFromEntity(cache.ped) == 0 then
+    if GetInteriorFromEntity(cache.ped) ~= 0 then
         exports.qbx_core:Notify('You cannot make a snowball indoors!', 'error', 5000)
         return
     end
