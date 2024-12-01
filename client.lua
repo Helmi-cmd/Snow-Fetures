@@ -29,25 +29,22 @@ local keybind = lib.addKeybind({
     end,
 })
 RegisterNetEvent('snowball', function()
+
+    local bucket = lib.callback.await('snow:GetBucket')
+
     if inSnowman then
         exports.qbx_core:Notify('You can\'t do this while in a snowman!', 'error', 5000)
         return
         end
     local weather = GlobalState.weather.weather
 
-    if GetInteriorFromEntity(cache.ped) ~= 0 then
+    if GetInteriorFromEntity(cache.ped) ~= 0 or bucket ~= 0 then
         exports.qbx_core:Notify('You cannot make a snowball indoors!', 'error', 5000)
         return
     end
 
-    if not table.contains(snowing, weather) then
-        exports.qbx_core:Notify('There is no snow on the ground', 'error', 5000) -- Notify Client, There is no snow on the ground
+    if cache.vehicle then -- Check if the player is in a vehicle
         return
-    end
-    if cooldown then
-        return
-    else
-        cooldown = true
     end
     local maxamount = lib.callback.await('checkSnowballCount')                    -- Check if the player has more than 10 snowballs
     if not maxamount then

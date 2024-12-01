@@ -36,3 +36,6 @@ lib.callback.register('checkSnowballAndCarrotCount', function(source)
     end
     return true
 end)
+lib.callback.register('snow:GetBucket', function(source)
+    return GetPlayerRoutingBucket(source)
+end)
